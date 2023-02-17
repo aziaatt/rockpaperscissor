@@ -1,96 +1,21 @@
-/*
-
 function getComputerChoice(){
-    let choice = ["Rock", "Paper", "Scissors"];
-    let random = Math.floor(Math.random() * choice.length);
-    let computerSelection = choice[random];
-    return computerSelection;
-}
-
-function playRound(computerSelection, playerSelection){
-    let resultRound;
-    let win;
-    if(computerSelection == "Rock" && playerSelection == "Paper"){
-        resultRound = "You win! Paper beats rock";
-        win = 1;
-    } else if(computerSelection == "Rock" && playerSelection == "Scissors"){
-        resultRound = "You lose! Rock beats scissors";
-        win = 0;
-    } else if(computerSelection == "Paper" && playerSelection == "Rock"){
-        resultRound = "You lose! Paper beats rock";
-        win = 0;
-    } else if(computerSelection == "Paper" && playerSelection == "Scissors"){
-        resultRound = "You win! Scissors beats paper";
-        win = 1;
-    } else if(computerSelection == "Scissors" && playerSelection == "Rock"){
-        resultRound = "You win! Rock beats scissors";
-        win = 1;
-    } else if(computerSelection == "Scissors" && playerSelection == "Paper"){
-        resultRound = "You Lose! Scissors beats paper";
-        win = 0;
-    } else{
-        resultRound = "It's a tie!";
-    }
-    return resultRound;
-    return winner;
-}
-
-let cScore = 0;
-let pScore = 0;
-let winner;
-
-function game(){
-
-while(cScore <= 5 || pScore <= 5){
-
-    let computerSelection = getComputerChoice()
-    let playerSelection = prompt("Rock, paper or scissors?");
-    playRound(computerSelection, playerSelection);
-
-    if(winner === 1){
-        console.log("You win this round!");
-        pScore++;
-        console.log(pScore)
-    } else if(winner === 0){
-        console.log("The computer wins this round");
-        cScore++;
-        console.log(cScore)
-
-
-}
-}
-if(cScore > pScore){
-    console.log("Computer wins!");
-} else if(pScore > cScore){
-    console.log("Player wins!");
-} else{
-    console.log("It's a tie");
-}
-
-console.log(game());
-
-*/
-
-
-function getComputerChoice(){
-    let choice = ["Rock", "Paper", "Scissors"];
+    let choice = ["rock", "paper", "scissors"];
     let random = Math.floor(Math.random() * choice.length);
     let computerSelection = choice[random];
     return computerSelection;
 }
 function playRound(computerSelection, playerSelection){
-    let resultRound;
-    if(computerSelection == "Rock" && playerSelection == "Paper"){
+    if(computerSelection == "rock" && playerSelection == "paper"){
         resultRound = 1
-    } else if(computerSelection == "Rock" && playerSelection == "Scissors"){
+    } else if(computerSelection == "rock" && playerSelection == "scissors"){
         resultRound = 2
-    } else if(computerSelection == "Paper" && playerSelection == "Rock"){
+    } else if(computerSelection == "paper" && playerSelection == "rock"){
         resultRound = 1
-    } else if(computerSelection == "Paper" && playerSelection == "Scissors"){
+    } else if(computerSelection == "paper" && playerSelection == "scissors"){
         resultRound = 2
-    } else if(computerSelection == "Scissors" && playerSelection == "Rock"){
+    } else if(computerSelection == "scissors" && playerSelection == "rock"){
         resultRound = 2
-    } else if(computerSelection == "Scissors" && playerSelection == "Paper"){
+    } else if(computerSelection == "scissors" && playerSelection == "paper"){
         resultRound = 1
     } else{
         resultRound = "It's a tie!";
@@ -104,17 +29,16 @@ function game(){
     let cScore = 0;
     let pScore = 0;
 for(i = 0; i < 5; i++){
-    
-    getComputerChoice();
-    let playerSelection = prompt("Rock, paper or scissors?");   
-    let resultRound = playRound(getComputerChoice(), playerSelection);
+    let playerSelection = prompt("Rock, paper or scissors?").toLowerCase();   
     playRound(getComputerChoice(), playerSelection);
     if(resultRound == 1){
         cScore++;
+        console.log("computer won")
     } else if(resultRound == 2){
         pScore++;
+        console.log("Player Won")
     } else{
-        console.log("it's a tie round");
+        console.log("Tie")
     }
 }
     if(cScore === pScore){
