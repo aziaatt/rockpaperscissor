@@ -19,9 +19,9 @@ buttons.forEach((button) => {
 
 let cScore = 0;
 let pScore = 0;
-
-
-
+if(pScore == 5 || cScore == 5){
+    console.log("match ended");
+}
 
 
 function playRound(computerSelection, playerSelection){
@@ -48,11 +48,7 @@ function playRound(computerSelection, playerSelection){
     }
     return resultRound;
 }
-if(pScore <= 5){
-    console.log("Player wins!");
-} else if (cScore <= 5){
-    console.log("Computer wins!");
-}
+
 
 /*
 function game(){
