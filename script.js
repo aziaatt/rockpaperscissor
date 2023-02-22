@@ -1,3 +1,15 @@
+let pScore = 0;
+let cScore = 0;
+let showcasePlayer = document.getElementById("pScore");
+let showcaseComputer = document.getElementById("cScore");
+let showcaseWinner = document.getElementById("winner");
+let resetButton = document.getElementById("reset");
+let choiceButton = document.getElementById("choices");
+
+
+resetButton.style.visibility="hidden";
+
+
 function getComputerChoice(){
     let choice = ["rock", "paper", "scissors"];
     let random = Math.floor(Math.random() * choice.length);
@@ -14,39 +26,48 @@ buttons.forEach((button) => {
   button.addEventListener('click', () => {
     let playerSelection = String(button.className);
     playRound(getComputerChoice(), playerSelection);
+    if(pScore === 5){
+        showcaseWinner.innerText = "Player wins!";
+    } else if(cScore === 5){
+        showcaseWinner.innerText = "Computer wins!";
+    }
+
+    if(pScore === 5 || cScore === 5){
+        resetButton.style.visibility="visible";
+    }
   });
 });
 
-let cScore = 0;
-let pScore = 0;
-if(pScore == 5 || cScore == 5){
-    console.log("match ended");
-}
+resetButton((button) => {
+
+resetButton.addEventListener('click', () =>{
+    let pScore = 0;
+    let cScore = 0;
+
+});
+});
 
 
 function playRound(computerSelection, playerSelection){
+
     if(computerSelection == "rock" && playerSelection == "paper"){
-        resultRound = 1
         pScore ++;
     } else if(computerSelection == "rock" && playerSelection == "scissors"){
-        resultRound = 2
         cScore ++;
     } else if(computerSelection == "paper" && playerSelection == "rock"){
-        resultRound = 1
-        pScore ++;
+        cScore ++;
     } else if(computerSelection == "paper" && playerSelection == "scissors"){
-        resultRound = 2
-        cScore ++;
-    } else if(computerSelection == "scissors" && playerSelection == "rock"){
-        resultRound = 2
-        cScore ++;
-    } else if(computerSelection == "scissors" && playerSelection == "paper"){
-        resultRound = 1
         pScore ++;
+    } else if(computerSelection == "scissors" && playerSelection == "rock"){
+        pScore ++;
+    } else if(computerSelection == "scissors" && playerSelection == "paper"){
+        cScore ++;
     } else{
         resultRound = "It's a tie!";
     }
-    return resultRound;
+
+    showcasePlayer.innerText = `Player score: ${pScore}`;
+    showcaseComputer.innerText = `Computer score: ${cScore}`;
 }
 
 
