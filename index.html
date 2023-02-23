@@ -4,25 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
     <div class="header">
-        <h1> Rock Paper Scissors</h1>
+        <h1> Rock Paper Scissors </h1>
+        <h4>First to 5 points wins.</h4>
     </div>
 
     <div class="info">
-        <h3>Choose your weapon</h3>
-        <h4>First to 5 points wins.</h4>
+        <h3>Choose your weapon:</h3>
     </div>
     <div class="choices">
-        <button class="rock">Rock</button>
-        <button class="paper">Paper</button>
-        <button class="scissors">Scissors</button>
+        <button class="rock"><img src="fist.png"></button>
+        <button class="paper"><img src="paper.png"></button>
+        <button class="scissors"><img src="scissors.png"></button>
     </div>
+    <div class="whatChoice">
+        <div id="yourChoice">
+            <h4>You chose:</h4>
+            <p id="pChoice"> None</p>
+        </div>
+        <div id="theirChoice">
+            <h4>The computer chose:</h4>
+            <p id="cChoice"> None</p>
+        </div>
+    </div>
+    
     <div id="results">
         <p id="pScore">Player score:</p>
         <p id="cScore">Computer score:</p>
+    </div>
+    <div class="playing">
         <p id="winner"></p>
         <button id="reset" onclick="resetScores()">Play Again!</button>
     </div>
