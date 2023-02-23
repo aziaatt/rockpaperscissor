@@ -4,7 +4,7 @@ let showcasePlayer = document.getElementById("pScore");
 let showcaseComputer = document.getElementById("cScore");
 let showcaseWinner = document.getElementById("winner");
 let resetButton = document.getElementById("reset");
-let choiceButton = document.getElementById("choices");
+let choiceButton = document.getElementsByClassName("choices");
 
 
 resetButton.style.visibility="hidden";
@@ -34,18 +34,17 @@ buttons.forEach((button) => {
 
     if(pScore === 5 || cScore === 5){
         resetButton.style.visibility="visible";
+        choiceButton[0].style.visibility = "hidden";
     }
   });
 });
 
-resetButton((button) => {
-
-resetButton.addEventListener('click', () =>{
-    let pScore = 0;
-    let cScore = 0;
-
-});
-});
+function resetScores(){
+    pScore = 0;
+    cScore = 0;
+    resetButton.style.visibility="hidden";
+    choiceButton[0].style.visibility = "visible";
+}
 
 
 function playRound(computerSelection, playerSelection){
