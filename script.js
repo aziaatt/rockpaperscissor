@@ -17,27 +17,26 @@ function getComputerChoice(){
     let random = Math.floor(Math.random() * choice.length);
     let computerSelection = choice[random];
     cChoice.innerText = String(computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1));
+    console.log("1");
     return computerSelection;
 }
 
 const p = document.querySelector("p");
-const buttons = document.querySelectorAll('button');
 // we use the .forEach method to iterate through each button
-buttons.forEach((button) => {
-
-  // and for each one we add a 'click' listener
+const choiceButtons = document.querySelectorAll('.choices button');
+choiceButtons.forEach((button) => {
   button.addEventListener('click', () => {
     let playerSelection = String(button.className);
     playRound(getComputerChoice(), playerSelection);
 
     pChoice.innerText = String(playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1));
-    
+
     function disableButtons() {
         const choiceButtons = document.querySelectorAll('.choices button');
         choiceButtons.forEach((button) => {
-          button.disabled = true;
+            button.disabled = true;
         });
-      }
+    }
 
     if (pScore === 5) {
         showcaseWinner.style.visibility = "visible";
@@ -65,8 +64,8 @@ function resetScores(){
       button.disabled = false;
     });
     showcaseWinner.style.visibility = "hidden";
-    pChoice.innerText = "";
     cChoice.innerText = "";
+    pChoice.innerText = "";
 }
 
 
