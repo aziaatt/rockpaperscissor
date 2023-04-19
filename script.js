@@ -17,7 +17,6 @@ function getComputerChoice(){
     let random = Math.floor(Math.random() * choice.length);
     let computerSelection = choice[random];
     cChoice.innerText = String(computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1));
-    console.log("1");
     return computerSelection;
 }
 
