@@ -11,7 +11,10 @@ body{
     background-color: #ffea00;
     color: #28334aff;
     text-align: center;
-    margin-top: 30px;
+}
+
+.youChose{
+    padding:10px 0px 10px 0px;
 }
 
 .info h3{
