@@ -4,7 +4,7 @@ let showcasePlayer = document.getElementById("pScore");
 let showcaseComputer = document.getElementById("cScore");
 let showcaseWinner = document.getElementById("winner");
 let resetButton = document.getElementById("reset");
-let choiceButton = document.getElementsByClassName("choices");
+let choiceButton = document.getElementsByClassName("choices")[0];
 let pChoice = document.getElementById("pChoice")
 let cChoice = document.getElementById("cChoice");
 
@@ -32,18 +32,26 @@ buttons.forEach((button) => {
 
     pChoice.innerText = String(playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1));
     
+    function disableButtons() {
+        const choiceButtons = document.querySelectorAll('.choices button');
+        choiceButtons.forEach((button) => {
+          button.disabled = true;
+        });
+      }
 
-    if(pScore === 5){
+    if (pScore === 5) {
         showcaseWinner.style.visibility = "visible";
         showcaseWinner.innerText = "Player wins!";
-    } else if(cScore === 5){
+        disableButtons();
+    } else if (cScore === 5) {
         showcaseWinner.style.visibility = "visible";
         showcaseWinner.innerText = "Computer wins!";
-    }
+        disableButtons();
+      }
 
     if(pScore === 5 || cScore === 5){
         resetButton.style.visibility="visible";
-        choiceButton[0].style.visibility = "hidden";
+        disableButtons();
     }
   });
 });
@@ -52,13 +60,17 @@ function resetScores(){
     pScore = 0;
     cScore = 0;
     resetButton.style.visibility="hidden";
-    choiceButton[0].style.visibility = "visible";
+    const choiceButtons = document.querySelectorAll('.choices button');
+    choiceButtons.forEach((button) => {
+      button.disabled = false;
+    });
     showcaseWinner.style.visibility = "hidden";
+    pChoice.innerText = "";
+    cChoice.innerText = "";
 }
 
 
 function playRound(computerSelection, playerSelection){
-
     if(computerSelection == "rock" && playerSelection == "paper"){
         pScore ++;
     } else if(computerSelection == "rock" && playerSelection == "scissors"){
@@ -75,34 +87,11 @@ function playRound(computerSelection, playerSelection){
         resultRound = "It's a tie!";
     }
 
-    showcasePlayer.innerText = `Player score: ${pScore}`;
-    showcaseComputer.innerText = `Computer score: ${cScore}`;
-}
+    showcasePlayer.innerText = `${pScore}`;
+    showcaseComputer.innerText = `${cScore}`;
 
-
-/*
-function game(){
-    let cScore = 0;
-    let pScore = 0;
-for(i = 0; i < 5; i++){ 
-    console.log(playerSelection);
-    playRound(getComputerChoice(), playerSelection);
-    if(resultRound == 1){
-        cScore++;
-        console.log("computer won")
-    } else if(resultRound == 2){
-        pScore++;
-        console.log("Player Won")
-    } else{
-        console.log("Tie")
+    if(pScore !== 5 && cScore !== 5){
+        cChoice.innerText = String(computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1));
     }
 }
-    if(cScore === pScore){
-        console.log("It's a draw!");
-    } else if(pScore > cScore){
-        console.log("Player wins!");
-    } else{
-        console.log("Computer wins!");
-    }
-}
-*/
+

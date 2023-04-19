@@ -1,49 +1,33 @@
 body{
     margin:0;
     padding:0;
+    background-color: #ffea00;
+    color: #28334aff;
+    font-family:'Courier New', Courier, monospace;
 }
 .header{
     display: flex;
     flex-direction: column;
-    background-color: rgb(71, 69, 201);
-    color: white;
-}
-.header h1{
-    display: flex;
-    flex: 1;
-    justify-content:center;
-    align-items: center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-bottom:0;
-}
-.header h4{
-    display: flex;
-    flex: 1;
-    justify-content:center;
-    align-items: center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffea00;
+    color: #28334aff;
+    text-align: center;
 }
 
-.info{
-    display: flex;
-}
 .info h3{
     display: flex;
     flex: 1;
     justify-content:center;
     align-items: center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .choices{
     display: flex;
     justify-content:center;
     align-items: center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     gap: 30px;
 }
 .choices button{
     color: white;
-    background-color: white;
+    background-color: #ffea00;
     border: 0;
 }
 .choices button:hover{
@@ -91,7 +75,7 @@ button img{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 #reset{
-    background-color: rgb(71, 69, 201);
+    background-color: #b8a90c;
     color: white;
     border: 0;
     width: 200px;
